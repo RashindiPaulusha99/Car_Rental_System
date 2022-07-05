@@ -5,15 +5,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
+@Entity
 public class Driver {
+    @Id
     private String driverId;
     private String driverName;
     private String driverAddress;
     private int driverAge;
     private String driverContact;
+
+    @OneToOne
+    private Users users;
 
 }

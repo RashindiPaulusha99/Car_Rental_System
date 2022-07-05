@@ -5,11 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class User {
+@Entity
+public class Users {
+    @Id
     private String userId;
     private String username;
     private String password;

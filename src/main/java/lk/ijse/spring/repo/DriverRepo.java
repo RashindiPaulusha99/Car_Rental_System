@@ -8,4 +8,8 @@ public interface DriverRepo extends JpaRepository<Driver, String> {
 
     @Query(value = "SELECT driverId FROM Driver ORDER BY driverId DESC LIMIT 1", nativeQuery = true)
     String generateDriverId();
+
+    int availableDrivers();
+
+    int occupiedDrivers();
 }

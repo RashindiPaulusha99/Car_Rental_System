@@ -18,7 +18,8 @@ public class CustomerDTO {
     private String customerAddress;
     private String customerContact;
     private String customerEmail;
-    private String customerNicORDrivingLicenseNo;
+    private String customerNicNo;
+    private String customerDrivingLicenseNo;
 
 
 }

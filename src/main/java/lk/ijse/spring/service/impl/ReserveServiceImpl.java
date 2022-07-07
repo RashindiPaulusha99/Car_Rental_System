@@ -32,12 +32,31 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public void reservationCars(ReserveDTO reserveDTO) {
+        Reserve reserve = modelMapper.map(reserveDTO, Reserve.class);
+        if (!reserveRepo.existsById(reserveDTO.getReserveId())){
 
+            if (reserveDTO.getReserveDetails().size() < 1){
+                throw new RuntimeException("No Cars In Reservation..!");
+            }else {
+                reserveRepo.save(reserve);
+
+                /*for (ReserveDetails reserveDetails : reserve.getReserveDetails()) {
+                    Car car = carRepo.findById(reserveDetails.getCarId()).get();
+                }*/
+            }
+
+        }else {
+            throw  new RuntimeException(reserveDTO.getReserveId()+" "+"Reservation Already Exist..!");
+        }
     }
 
     @Override
     public void deleteReservation(String rId) {
-
+        if (reserveRepo.existsById(rId)){
+            reserveRepo.deleteById(rId);
+        }else {
+            throw new RuntimeException(rId +" "+ "No Such Reservation..! Please Check The Correct ID..!");
+        }
     }
 
     @Override
@@ -47,7 +66,12 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public ReserveDTO searchReservation(String rId) {
-        return null;
+        if (reserveRepo.existsById(rId)){
+            Reserve reserve = reserveRepo.findById(rId).get();
+            return modelMapper.map(reserve, ReserveDTO.class);
+        }else {
+            throw new RuntimeException(rId + " " + "No Such Reservation..! Please Check The ID..!");
+        }
     }
 
     @Override

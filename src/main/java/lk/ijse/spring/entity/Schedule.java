@@ -26,7 +26,9 @@ public class Schedule {
     private LocalTime pickUpTime;
     private LocalDate returnDate;
     private LocalTime returnTime;
-    private String releaseOrNot;
+    private String pickUpVenue;
+    private String returnVenue;
+    private boolean releaseOrNot;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ReserveDetails reserveDetails;

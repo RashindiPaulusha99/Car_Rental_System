@@ -23,12 +23,14 @@ public class Car {
     private String fuelType;
     private String transmissionType;
     private int NoOfPassengers;
-    private int freeMileageDuration;
+    private int freeKmForDay;
+    private int freeKmForMonth;
     private double pricePerExtraKM;
     private double dailyRatePrice;
     private double monthlyRatePrice;
     private int totalDistanceTraveled;
     private boolean availableOrNot;
+    private boolean damageOrNot;
     private boolean underMaintainOrNot;
 
 }

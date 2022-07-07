@@ -9,4 +9,14 @@ public interface RentPaymentRepo extends JpaRepository<RentPayment ,String> {
     @Query(value = "SELECT paymentId FROM RentPayment ORDER BY paymentId DESC LIMIT 1", nativeQuery = true)
     String generatePaymentId();
 
+    Double dailyIncome();
+
+    Double weeklyIncome();
+
+    Double monthlyIncome();
+
+    Double annuallyIncome();
+
+    Double calculateKmUntil5000km();
+
 }

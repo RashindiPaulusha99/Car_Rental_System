@@ -70,4 +70,5 @@ public class CarServiceImpl implements CarService {
     public String generateCarIds() {
         return carRepo.generateCarId();
     }
+
 }

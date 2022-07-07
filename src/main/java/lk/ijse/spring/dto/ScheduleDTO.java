@@ -22,7 +22,9 @@ public class ScheduleDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
     private LocalTime returnTime;
-    private String releaseOrNot;
+    private String pickUpVenue;
+    private String returnVenue;
+    private boolean releaseOrNot;
 
     private ReserveDetailsDTO reserveDetails;
 

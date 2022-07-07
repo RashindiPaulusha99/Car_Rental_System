@@ -14,12 +14,13 @@ public class ReserveDetailsDTO {
     private String reserveId;
 
     private String carId;
-    private String registrationNo;
+    private String type;
     private String colour;
     private String brand;
 
     private String driverId;
     private String driverName;
+    private String driverContact;
 
     private double loseDamageWaiverPayment;
 

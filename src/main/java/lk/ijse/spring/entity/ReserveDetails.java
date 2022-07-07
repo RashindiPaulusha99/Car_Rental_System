@@ -22,10 +22,11 @@ public class ReserveDetails {
     @Id
     private String driverId;
 
-    private String registrationNo;
+    private String type;
     private String colour;
     private String brand;
     private String driverName;
+    private String driverContact;
     private double loseDamageWaiverPayment;
 
     @ManyToOne

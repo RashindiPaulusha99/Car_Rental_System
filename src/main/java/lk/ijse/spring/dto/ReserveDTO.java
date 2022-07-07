@@ -23,11 +23,12 @@ public class ReserveDTO {
     private LocalTime pickUpTime;
     private String destination;
     private int duration;
+    private String pickUpVenue;
     private String returnVenue;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
     private LocalTime returnTime;
-    private String wantDriverOrNot;
+    private boolean wantDriverOrNot;
     private String requestAcceptOrDeny;
 
     List<ReserveDetailsDTO> reserveDetails;

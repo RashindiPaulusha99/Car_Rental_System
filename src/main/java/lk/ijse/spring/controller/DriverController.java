@@ -48,4 +48,19 @@ public class DriverController {
         return new ResponseUtil(200, "Ok", driverService.generateDriverIds());
     }
 
+    @GetMapping(path = "{release}/{carId}")
+    public ResponseUtil updateDriverIfHeReleaseOrNot(@PathVariable String release, @PathVariable String driverId ) {
+        return new ResponseUtil(200, "Ok", driverService.updateDriverIfHeReleaseOrNot(release,driverId));
+    }
+
+    @GetMapping(path = "/ASSIGN/{NO}")
+    public ResponseUtil assignRandomlyDriver(@PathVariable String NO) {
+        return new ResponseUtil(200, "Ok", driverService.assignRandomlyDriver(NO));
+    }
+
+    @GetMapping(path = "/AVAILABLE/{NO}")
+    public ResponseUtil availableDriversOrOccupiedDrivers(@PathVariable String NO) {
+        return new ResponseUtil(200, "Ok", driverService.availableDriversOrOccupiedDrivers(NO));
+    }
+
 }

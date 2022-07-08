@@ -70,4 +70,19 @@ public class DriverServiceImpl implements DriverService {
     public String generateDriverIds() {
         return driverRepo.generateDriverId();
     }
+
+    @Override
+    public void updateDriverIfHeReleaseOrNot(String release, String driverId) {
+        driverRepo.updateDriverIfHeReleaseOrNot(release,driverId);
+    }
+
+    @Override
+    public String assignRandomlyDriver(String NO) {
+        return driverRepo.assignRandomlyDriver(NO);
+    }
+
+    @Override
+    public int availableDriversOrOccupiedDrivers(String NO) {
+        return driverRepo.availableDriversOrOccupiedDrivers(NO);
+    }
 }

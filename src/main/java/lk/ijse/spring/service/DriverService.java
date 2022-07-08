@@ -17,5 +17,11 @@ public interface DriverService {
 
     String generateDriverIds();
 
+    void updateDriverIfHeReleaseOrNot(String release, String driverId);
+
+    String assignRandomlyDriver(String NO);
+
+    int availableDriversOrOccupiedDrivers(String NO);
+
 
 }

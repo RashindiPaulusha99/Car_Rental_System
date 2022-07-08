@@ -9,6 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +20,7 @@ public class Customer {
 
     @Id
     private String customerId;
+    private LocalDate registeredDate;
     private String customerName;
     private String customerAddress;
     private String customerContact;

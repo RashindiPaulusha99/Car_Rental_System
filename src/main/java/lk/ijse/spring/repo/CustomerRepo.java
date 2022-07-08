@@ -3,6 +3,7 @@ package lk.ijse.spring.repo;
 import lk.ijse.spring.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface CustomerRepo extends JpaRepository<Customer,String> {
 
@@ -11,5 +12,10 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
     @Query(value = "SELECT COUNT(*) FROM Customer", nativeQuery = true)
     int countRegisteredCustomers();
+
+    @Query(value = "SELECT COUNT(*) FROM Customer WHERE registeredDate:data", nativeQuery = true)
+    int countDailyRegisteredCustomers(@Param("data") String data);
+
+    Customer findByCustomerId();
 
 }

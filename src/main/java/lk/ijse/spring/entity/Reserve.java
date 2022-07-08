@@ -20,6 +20,7 @@ public class Reserve {
     @Id
     private String reserveId;
 
+    private LocalDate reserveDate;
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
     private String destination;

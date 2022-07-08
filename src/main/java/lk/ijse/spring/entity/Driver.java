@@ -22,6 +22,7 @@ public class Driver {
     private String driverAddress;
     private int driverAge;
     private String driverContact;
+    private String releaseOrNot;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Users users;

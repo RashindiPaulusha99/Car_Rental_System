@@ -20,6 +20,8 @@ public class ReserveDTO {
     private CustomerDTO customer;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate reserveDate;
     private LocalTime pickUpTime;
     private String destination;
     private int duration;

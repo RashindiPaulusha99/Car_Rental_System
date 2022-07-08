@@ -8,4 +8,7 @@ public interface UserRepo extends JpaRepository<Users, String> {
 
     @Query(value = "SELECT userId FROM Users ORDER BY userId DESC LIMIT 1", nativeQuery = true)
     String generateUserId();
+
+    Users findByPasswordAndUsername(String password, String username);
+
 }

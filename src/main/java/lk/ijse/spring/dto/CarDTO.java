@@ -24,8 +24,8 @@ public class CarDTO {
     private double dailyRatePrice;
     private double monthlyRatePrice;
     private int totalDistanceTraveled;
-    private boolean availableOrNot;
+    private String availableOrNot;
     private boolean damageOrNot;
-    private boolean underMaintainOrNot;
+    private String underMaintainOrNot;
 
 }

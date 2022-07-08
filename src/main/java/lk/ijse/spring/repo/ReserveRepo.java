@@ -3,6 +3,7 @@ package lk.ijse.spring.repo;
 import lk.ijse.spring.entity.Reserve;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface ReserveRepo extends JpaRepository<Reserve, String> {
 
@@ -12,8 +13,10 @@ public interface ReserveRepo extends JpaRepository<Reserve, String> {
     @Query(value = "SELECT COUNT(*) FROM Reserve", nativeQuery = true)
     int countAllReservation();
 
-    int countDailyReservation();
+    @Query(value = "SELECT COUNT(*) FROM Reserve WHERE reserveDate:date", nativeQuery = true)
+    int countDailyReservation(@Param("date") String date);
 
-    int activeReservationPerDay();
+    @Query(value = "SELECT COUNT(*) FROM Reserve WHERE requestAcceptOrDeny:active", nativeQuery = true)
+    int activeReservationPerDay(@Param("active") String active);
 
 }

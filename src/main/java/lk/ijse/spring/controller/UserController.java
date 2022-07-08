@@ -48,4 +48,9 @@ public class UserController {
         return new ResponseUtil(200, "Ok", userService.generateUserIds());
     }
 
+    @GetMapping(path ="{password}/{username}")
+    public ResponseUtil findByPasswordAndUsername(@RequestParam String password, @RequestParam String username){
+        return new ResponseUtil(200, "Ok", userService.findByPasswordAndUsername(password,username));
+    }
+
 }

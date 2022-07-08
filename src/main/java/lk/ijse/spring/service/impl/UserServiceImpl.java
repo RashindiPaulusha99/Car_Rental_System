@@ -70,4 +70,10 @@ public class UserServiceImpl implements UserService {
     public String generateUserIds() {
         return userRepo.generateUserId();
     }
+
+    @Override
+    public UsersDTO findByPasswordAndUsername(String password, String username) {
+        Users data = userRepo.findByPasswordAndUsername(password, username);
+        return mapper.map(data,UsersDTO.class);
+    }
 }

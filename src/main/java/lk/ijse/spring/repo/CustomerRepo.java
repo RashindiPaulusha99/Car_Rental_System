@@ -16,6 +16,4 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     @Query(value = "SELECT COUNT(*) FROM Customer WHERE registeredDate:data", nativeQuery = true)
     int countDailyRegisteredCustomers(@Param("data") String data);
 
-    Customer findByCustomerId();
-
 }

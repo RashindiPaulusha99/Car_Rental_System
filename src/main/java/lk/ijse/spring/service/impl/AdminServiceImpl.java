@@ -71,4 +71,5 @@ public class AdminServiceImpl implements AdminService {
 
         return adminRepo.generateAdminId();
     }
+
 }

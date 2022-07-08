@@ -16,4 +16,6 @@ public interface UserService {
     List<UsersDTO> getAllUsers();
 
     String generateUserIds();
+
+    UsersDTO findByPasswordAndUsername(String password, String username);
 }

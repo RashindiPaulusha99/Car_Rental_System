@@ -75,4 +75,9 @@ public class CustomerServiceImpl implements CustomerService {
     public int countRegisteredCustomers() {
         return customerRepo.countRegisteredCustomers();
     }
+
+    @Override
+    public int countDailyRegisteredCustomers(String date) {
+        return customerRepo.countDailyRegisteredCustomers(date);
+    }
 }

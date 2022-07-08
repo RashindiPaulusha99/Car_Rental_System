@@ -18,4 +18,31 @@ public interface CarService {
 
     String generateCarIds();
 
+    int NoOfAvailableOrReservedCars(String available);
+
+    int needMaintenanceOrUnderMaintenanceCars(String maintain);
+
+    Double calculateKmUntil5000km(String distance, String carId);
+
+    List<CarDTO> sortAccordingToPassengersByDescending();
+
+    List<CarDTO> sortAccordingToPassengersByAscending();
+
+    List<CarDTO> findByTransmissionType(String type);
+
+    List<CarDTO> findByBrand(String brand);
+
+    List<CarDTO> findByType(String type);
+
+    List<CarDTO> findByFuelType(String fuelType);
+
+    List<CarDTO> sortAccordingToDailyRatePriceByDescending();
+
+    List<CarDTO> sortAccordingToDailyRatePriceByAscending();
+
+    List<CarDTO> sortAccordingToMonthlyRatePriceByAscending();
+
+    List<CarDTO> sortAccordingToMonthlyRatePriceByDescending();
+
+
 }

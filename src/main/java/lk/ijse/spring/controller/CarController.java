@@ -48,4 +48,69 @@ public class CarController {
         return new ResponseUtil(200, "Ok", carService.generateCarIds());
     }
 
+    @GetMapping(path = "/COUNT/{available}")
+    public ResponseUtil NoOfAvailableOrReservedCars(@PathVariable String available) {
+        return new ResponseUtil(200, "Ok", carService.NoOfAvailableOrReservedCars(available));
+    }
+
+    @GetMapping(path = "/COUNT/{maintain}")
+    public ResponseUtil needMaintenanceOrUnderMaintenanceCars(@PathVariable String maintain) {
+        return new ResponseUtil(200, "Ok", carService.needMaintenanceOrUnderMaintenanceCars(maintain));
+    }
+
+    @GetMapping(path = "{distance}/{carId}")
+    public ResponseUtil calculateKmUntil5000km(@PathVariable String distance, @PathVariable String carId ) {
+        return new ResponseUtil(200, "Ok", carService.calculateKmUntil5000km(distance,carId));
+    }
+
+    @GetMapping(path = "/TYPE/{tratype}")
+    public ResponseUtil findByTransmissionType(@PathVariable String tratype) {
+        return new ResponseUtil(200, "Ok", carService.findByTransmissionType(tratype));
+    }
+
+    @GetMapping(path = "/TYPE/{brand}")
+    public ResponseUtil findByBrand(@PathVariable String brand) {
+        return new ResponseUtil(200, "Ok", carService.findByBrand(brand));
+    }
+
+    @GetMapping(path = "/TYPE/{type}")
+    public ResponseUtil findByType(@PathVariable String type) {
+        return new ResponseUtil(200, "Ok", carService.findByType(type));
+    }
+
+    @GetMapping(path = "/TYPE/{ftype}")
+    public ResponseUtil findByFuelType(@PathVariable String ftype) {
+        return new ResponseUtil(200, "Ok", carService.findByFuelType(ftype));
+    }
+
+    @GetMapping
+    public ResponseUtil sortAccordingToPassengersByDescending() {
+        return new ResponseUtil(200, "Ok", carService.sortAccordingToPassengersByDescending());
+    }
+
+    @GetMapping
+    public ResponseUtil sortAccordingToPassengersByAscending() {
+        return new ResponseUtil(200, "Ok", carService.sortAccordingToPassengersByAscending());
+    }
+
+    @GetMapping
+    public ResponseUtil sortAccordingToDailyRatePriceByDescending() {
+        return new ResponseUtil(200, "Ok", carService.sortAccordingToDailyRatePriceByDescending());
+    }
+
+    @GetMapping
+    public ResponseUtil sortAccordingToDailyRatePriceByAscending() {
+        return new ResponseUtil(200, "Ok", carService.sortAccordingToDailyRatePriceByAscending());
+    }
+
+    @GetMapping
+    public ResponseUtil sortAccordingToMonthlyRatePriceByAscending() {
+        return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByAscending());
+    }
+
+    @GetMapping
+    public ResponseUtil sortAccordingToMonthlyRatePriceByDescending() {
+        return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByDescending());
+    }
+
 }

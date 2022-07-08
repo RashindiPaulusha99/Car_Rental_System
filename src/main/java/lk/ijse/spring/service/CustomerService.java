@@ -19,4 +19,6 @@ public interface CustomerService {
 
     int countRegisteredCustomers();
 
+    int countDailyRegisteredCustomers(String date);
+
 }

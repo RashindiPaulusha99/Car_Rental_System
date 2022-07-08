@@ -18,23 +18,14 @@ public interface CarRepo extends JpaRepository<Car, String> {
     @Query(value = "SELECT COUNT(*) FROM Car WHERE underMaintainOrNot=:maintain", nativeQuery = true)
     int needMaintenanceOrUnderMaintenanceCars(@Param("maintain") String maintain);
 
-    @Query(value = "UPDATE Car SET totalDistanceTraveled=:distance WHERE driverId=:driverId", nativeQuery = true)
-    Double calculateKmUntil5000km(@Param("distance") String distance, @Param("driverId") String driverId);
+    @Query(value = "UPDATE Car SET totalDistanceTraveled=:distance WHERE carId=:carId", nativeQuery = true)
+    Double calculateKmUntil5000km(@Param("distance") String distance, @Param("carId") String driverId);
 
     @Query(value = "SELECT * FROM Car ORDER BY NoOfPassengers DESC", nativeQuery = true)
     List<Car> sortAccordingToPassengersByDescending();
 
     @Query(value = "SELECT * FROM Car ORDER BY NoOfPassengers ASC", nativeQuery = true)
     List<Car> sortAccordingToPassengersByAscending();
-
-    @Query(value = "SELECT * FROM Car WHERE transmissionType=:type", nativeQuery = true)
-    List<Car> sortAccordingToTransmissionType(@Param("type") String type);
-
-    @Query(value = "SELECT * FROM Car WHERE brand=:brand", nativeQuery = true)
-    List<Car> sortAccordingToBrand(@Param("brand") String brand);
-
-    @Query(value = "SELECT * FROM Car WHERE type=:type", nativeQuery = true)
-    List<Car> sortAccordingToType(@Param("type") String type);
 
     @Query(value = "SELECT * FROM Car ORDER BY dailyRatePrice DESC", nativeQuery = true)
     List<Car> sortAccordingToDailyRatePriceByDescending();
@@ -48,7 +39,13 @@ public interface CarRepo extends JpaRepository<Car, String> {
     @Query(value = "SELECT * FROM Car ORDER BY monthlyRatePrice DESC", nativeQuery = true)
     List<Car> sortAccordingToMonthlyRatePriceByDescending();
 
-    @Query(value = "SELECT * FROM Car WHERE fuelType=:type", nativeQuery = true)
-    List<Car> sortAccordingToFuelType(@Param("fuelType") String fuelType);
+    List<Car> findByTransmissionType(String type);
+
+    List<Car> findByBrand(String brand);
+
+    List<Car> findByType(String type);
+
+    List<Car> findByFuelType(String fuelType);
+
 
 }

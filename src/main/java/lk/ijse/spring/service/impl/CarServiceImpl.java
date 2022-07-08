@@ -71,4 +71,90 @@ public class CarServiceImpl implements CarService {
         return carRepo.generateCarId();
     }
 
+    @Override
+    public int NoOfAvailableOrReservedCars(String available) {
+        return carRepo.NoOfAvailableOrReservedCars(available);
+    }
+
+    @Override
+    public int needMaintenanceOrUnderMaintenanceCars(String maintain) {
+        return carRepo.needMaintenanceOrUnderMaintenanceCars(maintain);
+    }
+
+    @Override
+    public Double calculateKmUntil5000km(String distance, String carId) {
+        return carRepo.calculateKmUntil5000km(distance,carId);
+    }
+
+    @Override
+    public List<CarDTO> sortAccordingToPassengersByDescending() {
+        List<Car> all = carRepo.sortAccordingToPassengersByDescending();
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> sortAccordingToPassengersByAscending() {
+        List<Car> all = carRepo.sortAccordingToPassengersByAscending();
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> findByTransmissionType(String type) {
+        List<Car> all = carRepo.findByTransmissionType(type);
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> findByBrand(String brand) {
+        List<Car> all = carRepo.findByBrand(brand);
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> findByType(String type) {
+        List<Car> all = carRepo.findByType(type);
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> findByFuelType(String fuelType) {
+        List<Car> all = carRepo.findByFuelType(fuelType);
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> sortAccordingToDailyRatePriceByDescending() {
+        List<Car> all = carRepo.sortAccordingToDailyRatePriceByDescending();
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> sortAccordingToDailyRatePriceByAscending() {
+        List<Car> all = carRepo.sortAccordingToDailyRatePriceByAscending();
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> sortAccordingToMonthlyRatePriceByAscending() {
+        List<Car> all = carRepo.sortAccordingToMonthlyRatePriceByAscending();
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<CarDTO> sortAccordingToMonthlyRatePriceByDescending() {
+        List<Car> all = carRepo.sortAccordingToMonthlyRatePriceByDescending();
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+
 }

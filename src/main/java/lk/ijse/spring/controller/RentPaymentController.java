@@ -48,4 +48,14 @@ public class RentPaymentController {
         return new ResponseUtil(200, "Ok", rentPaymentService.generatePaymentIds());
     }
 
+    @GetMapping(path = "/INCOME/{date}")
+    public ResponseUtil dailyIncome(@PathVariable String date) {
+        return new ResponseUtil(200, "Ok", rentPaymentService.dailyIncome(date));
+    }
+
+    @GetMapping(path = "{firstdate}/{lastdate}")
+    public ResponseUtil calculateIncome(@PathVariable String firstdate, @PathVariable String lastdate) {
+        return new ResponseUtil(200, "Ok", rentPaymentService.calculateIncome(firstdate,lastdate));
+    }
+
 }

@@ -18,4 +18,8 @@ public interface RentPaymentService {
 
     String generatePaymentIds();
 
+    Double dailyIncome(String date);
+
+    Double calculateIncome(String firstdate,String lastdate);
+
 }

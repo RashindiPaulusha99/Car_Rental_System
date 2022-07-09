@@ -70,4 +70,14 @@ public class RentPaymentServiceImpl implements RentPaymentService {
     public String generatePaymentIds() {
         return rentPaymentRepo.generatePaymentId();
     }
+
+    @Override
+    public Double dailyIncome(String date) {
+        return rentPaymentRepo.dailyIncome(date);
+    }
+
+    @Override
+    public Double calculateIncome(String firstdate, String lastdate) {
+        return rentPaymentRepo.calculateIncome(firstdate,lastdate);
+    }
 }

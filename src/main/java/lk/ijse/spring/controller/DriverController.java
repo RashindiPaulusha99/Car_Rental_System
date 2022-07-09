@@ -50,7 +50,8 @@ public class DriverController {
 
     @GetMapping(path = "{release}/{carId}")
     public ResponseUtil updateDriverIfHeReleaseOrNot(@PathVariable String release, @PathVariable String driverId ) {
-        return new ResponseUtil(200, "Ok", driverService.updateDriverIfHeReleaseOrNot(release,driverId));
+        driverService.updateDriverIfHeReleaseOrNot(release,driverId);
+        return new ResponseUtil(200, "Ok", null);
     }
 
     @GetMapping(path = "/ASSIGN/{NO}")

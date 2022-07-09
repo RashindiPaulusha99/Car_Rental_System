@@ -51,7 +51,7 @@ public class ReserveController {
     }
 
     @GetMapping(path ="/COUNT/{countall}")
-    public ResponseUtil countAllReservation(@PathVariable String count){
+    public ResponseUtil countAllReservation(@PathVariable String countall){
         return new ResponseUtil(200, "Ök", reserveService.countAllReservation());
     }
 

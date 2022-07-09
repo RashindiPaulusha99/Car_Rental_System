@@ -18,6 +18,8 @@ public interface CarService {
 
     String generateCarIds();
 
+    String carAvailableOrNot(String available, String id);
+
     int NoOfAvailableOrReservedCars(String available);
 
     int needMaintenanceOrUnderMaintenanceCars(String maintain);

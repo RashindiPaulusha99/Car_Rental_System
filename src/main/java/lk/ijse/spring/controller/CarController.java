@@ -113,4 +113,9 @@ public class CarController {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByDescending());
     }
 
+    @GetMapping(path = "{available}/{carId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil carAvailableOrNot(@PathVariable String available, @PathVariable String carId) {
+        return new ResponseUtil(200, "Ok", carService.carAvailableOrNot(available,carId));
+    }
+
 }

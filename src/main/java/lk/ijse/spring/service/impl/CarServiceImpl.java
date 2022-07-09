@@ -72,6 +72,11 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public String carAvailableOrNot(String available, String id) {
+        return carRepo.carAvailableOrNot(available,id);
+    }
+
+    @Override
     public int NoOfAvailableOrReservedCars(String available) {
         return carRepo.NoOfAvailableOrReservedCars(available);
     }

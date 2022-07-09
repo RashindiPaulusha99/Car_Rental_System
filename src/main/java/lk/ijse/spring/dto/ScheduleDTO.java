@@ -24,8 +24,8 @@ public class ScheduleDTO {
     private LocalTime returnTime;
     private String pickUpVenue;
     private String returnVenue;
-    private boolean releaseOrNot;
-
+    private String releaseOrNot;
+    
     private ReserveDetailsDTO reserveDetails;
 
 }

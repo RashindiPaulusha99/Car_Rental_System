@@ -13,6 +13,6 @@ public interface ReserveService {
     List<ReserveDTO> getAllReservations();
     String generateReserveId();
     int countAllReservation();
-    int countDailyReservation();
-    int activeReservationPerDay();
+    int countDailyReservation(String date);
+    int activeReservationPerDay(String active);
 }

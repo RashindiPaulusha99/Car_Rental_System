@@ -1,5 +1,6 @@
 package lk.ijse.spring.dto;
 
+import javafx.scene.image.ImageView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,6 @@ public class CarDTO {
     private String availableOrNot;
     private boolean damageOrNot;
     private String underMaintainOrNot;
+    private ImageView
 
 }

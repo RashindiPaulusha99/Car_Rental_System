@@ -28,6 +28,5 @@ public class CarDTO {
     private String availableOrNot;
     private boolean damageOrNot;
     private String underMaintainOrNot;
-    private ImageView
 
 }

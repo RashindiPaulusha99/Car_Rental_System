@@ -19,7 +19,7 @@ public interface CarRepo extends JpaRepository<Car, String> {
     int needMaintenanceOrUnderMaintenanceCars(@Param("maintain") String maintain);
 
     @Query(value = "UPDATE Car SET totalDistanceTraveled=:distance WHERE carId=:carId", nativeQuery = true)
-    Double calculateKmUntil5000km(@Param("distance") String distance, @Param("carId") String carId);
+    double calculateKmUntil5000km(@Param("distance") String distance, @Param("carId") String carId);
 
     @Query(value = "UPDATE Car SET availableOrNot=:available WHERE carId=:carId", nativeQuery = true)
     String carAvailableOrNot(@Param("available") String available, @Param("carId") String carId);

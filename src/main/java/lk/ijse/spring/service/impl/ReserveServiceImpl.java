@@ -1,10 +1,7 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.ReserveDTO;
-import lk.ijse.spring.entity.Car;
-import lk.ijse.spring.entity.Reserve;
-import lk.ijse.spring.entity.ReserveDetails;
-import lk.ijse.spring.entity.Schedule;
+import lk.ijse.spring.entity.*;
 import lk.ijse.spring.repo.*;
 import lk.ijse.spring.service.ReserveService;
 import org.modelmapper.ModelMapper;
@@ -50,7 +47,8 @@ public class ReserveServiceImpl implements ReserveService {
 
                 for (ReserveDetails reserveDetails : reserve.getReserveDetails()) {
                     Car car = carRepo.findById(reserveDetails.getCarId()).get();
-                    carRepo.carAvailableOrNot("YES",car.getCarId()) ;
+                    carRepo.carAvailableOrNot("Not Available",car.getCarId()) ;
+                    Driver driver = driverRepo.findById(reserveDetails.getDriverId()).get();
                     driverRepo.updateDriverIfHeReleaseOrNot("NO", reserveDetails.getDriverId());
 
                     Schedule rd = new Schedule(
@@ -61,7 +59,7 @@ public class ReserveServiceImpl implements ReserveService {
                             reserve.getReturnTime(),
                             reserve.getPickUpVenue(),
                             reserve.getReturnVenue(),
-                            car.getAvailableOrNot(),
+                            driver.getReleaseOrNot(),
                             reserveDetails
                     );
                     scheduleRepo.save(rd);
@@ -84,7 +82,36 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public void updateReservation(ReserveDTO reserveDTO) {
+        Reserve reserve = modelMapper.map(reserveDTO, Reserve.class);
 
+        if (reserveRepo.existsById(reserveDTO.getReserveId())){
+            Reserve referenceById= reserveRepo.findById(reserveDTO.getReserveId()).get();
+            for (ReserveDetails reserveDetail : referenceById.getReserveDetails()) {
+                driverRepo.updateDriverIfHeReleaseOrNot("Release",reserveDetail.getDriverId());
+            }
+        }
+
+        if (reserveRepo.existsById(reserve.getReserveId())){
+            reserveRepo.save(reserve);
+            for (ReserveDetails reserveDetails : reserve.getReserveDetails()) {
+
+                driverRepo.updateDriverIfHeReleaseOrNot("Not Release", reserveDetails.getDriverId());
+                Driver driver = driverRepo.findById(reserveDetails.getDriverId()).get();
+
+                Schedule rd = new Schedule(
+                        scheduleRepo.generateScheduleId(),
+                        reserve.getPickUpDate(),
+                        reserve.getPickUpTime(),
+                        reserve.getReserveDate(),
+                        reserve.getReturnTime(),
+                        reserve.getPickUpVenue(),
+                        reserve.getReturnVenue(),
+                        driver.getReleaseOrNot(),
+                        reserveDetails
+                );
+                scheduleRepo.save(rd);
+            }
+        }
     }
 
     @Override

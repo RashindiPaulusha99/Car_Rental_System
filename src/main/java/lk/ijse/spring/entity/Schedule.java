@@ -30,8 +30,6 @@ public class Schedule {
     private String returnVenue;
     private String releaseOrNot;
 
-
-
     @OneToOne(cascade = CascadeType.ALL)
     private ReserveDetails reserveDetails;
 

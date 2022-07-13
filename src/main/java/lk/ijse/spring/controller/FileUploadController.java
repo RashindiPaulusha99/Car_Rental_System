@@ -1,6 +1,7 @@
 package lk.ijse.spring.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +22,7 @@ public class FileUploadController {
     public FileUploadController() {
     }
 
-    @PutMapping(consumes = {"multipart/form-data"}, produces = {"application/json"})
+    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity uploadFile(@RequestPart("myFile") MultipartFile myFile, @RequestPart("myFile") byte[] isFile, @RequestPart("myFile") Part myPart) {
         System.out.println(isFile);
         System.out.println(myPart.getSubmittedFileName());
@@ -44,12 +45,11 @@ public class FileUploadController {
         }
     }
 
-    @PostMapping(consumes = {"multipart/form-data"}, produces = {"application/json"})
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity uploadFileWithSpringWay(@RequestPart("myFile") MultipartFile myFile) {
         try {
             String projectPath = (new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI())).getParentFile().getParentFile().getAbsolutePath();
             File uploadsDir = new File(projectPath + "/uploads");
-            System.out.println(projectPath);
             uploadsDir.mkdir();
             myFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + myFile.getOriginalFilename()));
             allImages.add("uploads/" + myFile.getOriginalFilename());
@@ -63,8 +63,9 @@ public class FileUploadController {
         }
     }
 
-    @GetMapping(produces = {"application/json"})
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAllImagesFromDatabase() {
+
         return new ResponseEntity(allImages, HttpStatus.OK);
     }
 

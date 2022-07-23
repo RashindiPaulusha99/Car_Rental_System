@@ -30,7 +30,7 @@ public class Car {
     private double monthlyRatePrice;
     private int totalDistanceTraveled;
     private String availableOrNot;
-    private boolean damageOrNot;
-    private boolean underMaintainOrNot;
+    private String damageOrNot;
+    private String underMaintainOrNot;
 
 }

@@ -18,7 +18,6 @@ public class ReserveDTO {
 
     private String reserveId;
     private CustomerDTO customer;
-    private String driverId;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
     @JsonFormat(pattern = "yyyy-MM-dd")

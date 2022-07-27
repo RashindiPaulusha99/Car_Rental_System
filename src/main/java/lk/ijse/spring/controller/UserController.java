@@ -53,4 +53,9 @@ public class UserController {
         return new ResponseUtil(200, "Ok", userService.findByPasswordAndUsername(password,username));
     }
 
+    @GetMapping(path ="/FIND/{username}")
+    public ResponseUtil findByUsername(@PathVariable("username") String username){
+        return new ResponseUtil(200, "Ok", userService.findByUsername(username));
+    }
+
 }

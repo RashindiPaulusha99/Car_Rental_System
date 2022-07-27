@@ -16,7 +16,7 @@ public class DriverController {
     DriverService driverService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveDriver(@ModelAttribute DriverDTO driverDTO){
+    public ResponseUtil saveDriver(@RequestBody DriverDTO driverDTO){
         driverService.saveDriver(driverDTO);
         return new ResponseUtil(200, "Successfully Saved.",null);
     }

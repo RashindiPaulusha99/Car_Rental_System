@@ -18,4 +18,6 @@ public interface UserService {
     String generateUserIds();
 
     UsersDTO findByPasswordAndUsername(String password, String username);
+
+    UsersDTO findByUsername(String username);
 }

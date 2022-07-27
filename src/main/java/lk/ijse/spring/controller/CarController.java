@@ -16,7 +16,7 @@ public class CarController {
     CarService carService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveCar(@ModelAttribute CarDTO carDTO){
+    public ResponseUtil saveCar(@RequestBody CarDTO carDTO){
         carService.saveCar(carDTO);
         return new ResponseUtil(200, "Successfully Saved.",null);
     }

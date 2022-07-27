@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class DriverDTO {
     private String driverId;
+    private UsersDTO users;
     private String driverName;
     private String driverAddress;
     private int driverAge;

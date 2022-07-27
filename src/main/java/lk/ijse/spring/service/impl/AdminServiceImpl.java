@@ -72,4 +72,12 @@ public class AdminServiceImpl implements AdminService {
         return adminRepo.generateAdminId();
     }
 
+    @Override
+    public AdminDTO searchUserFromAdmin(String id) {
+        Admin admin = adminRepo.searchUserFromAdmin(id);
+        return mapper.map(admin,AdminDTO.class);
+
+    }
+
+
 }

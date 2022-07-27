@@ -25,7 +25,7 @@ public class CustomerRepoTest {
 
     @Test
     public void saveCustomer(){
-        Customer customer = new Customer(
+       /* Customer customer = new Customer(
                 "C00-0001",
                 LocalDate.parse("2021-12-21"),
                 "Bihara",
@@ -36,7 +36,7 @@ public class CustomerRepoTest {
                 "22548962125v",
                 new Users("U00-0001","Cus","1234")
         );
-        customerRepo.save(customer);
+        customerRepo.save(customer);*/
     }
 
 }

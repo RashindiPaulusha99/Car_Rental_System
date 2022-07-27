@@ -16,7 +16,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveUser(@ModelAttribute UsersDTO usersDTO){
+    public ResponseUtil saveUser(@RequestBody UsersDTO usersDTO){
         userService.saveUser(usersDTO);
         return new ResponseUtil(200, "Successfully Registered.",null);
     }
@@ -48,8 +48,8 @@ public class UserController {
         return new ResponseUtil(200, "Ok", userService.generateUserIds());
     }
 
-    @GetMapping(path ="{password}/{username}")
-    public ResponseUtil findByPasswordAndUsername(@RequestParam String password, @RequestParam String username){
+    @GetMapping(path ="/{password}/{username}")
+    public ResponseUtil findByPasswordAndUsername(@PathVariable("password") String password, @PathVariable("username") String username){
         return new ResponseUtil(200, "Ok", userService.findByPasswordAndUsername(password,username));
     }
 

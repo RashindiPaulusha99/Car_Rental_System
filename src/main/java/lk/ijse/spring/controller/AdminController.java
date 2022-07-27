@@ -48,4 +48,9 @@ public class AdminController {
         return new ResponseUtil(200, "Ok", adminService.generateAdminIds());
     }
 
+    @GetMapping(path = "/USER/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchUserFromAdmin(@PathVariable("id") String id){
+        return new ResponseUtil(200, "Ok.",adminService.searchUserFromAdmin(id));
+    }
+
 }

@@ -85,4 +85,10 @@ public class DriverServiceImpl implements DriverService {
     public int availableDriversOrOccupiedDrivers(String NO) {
         return driverRepo.availableDriversOrOccupiedDrivers(NO);
     }
+
+    @Override
+    public DriverDTO searchUserFromDriver(String id) {
+        Driver driver = driverRepo.searchUserFromDriver(id);
+        return mapper.map(driver,DriverDTO.class);
+    }
 }

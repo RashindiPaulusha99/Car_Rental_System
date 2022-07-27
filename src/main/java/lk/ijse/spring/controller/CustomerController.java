@@ -16,9 +16,9 @@ public class CustomerController {
     CustomerService customerService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO cusDto){
+    public ResponseUtil saveCustomer(@RequestBody CustomerDTO cusDto){
         customerService.saveCustomer(cusDto);
-        return new ResponseUtil(200, "Successfully Saved.",null);
+        return new ResponseUtil(200, "Successfully Registered.",null);
     }
 
     @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -56,6 +56,11 @@ public class CustomerController {
     @GetMapping(path ="/COUNT/{date}")
     public ResponseUtil countDailyRegisteredCustomers(@PathVariable String date){
         return new ResponseUtil(200, "Ök", customerService.countDailyRegisteredCustomers(date));
+    }
+
+    @GetMapping(path = "/USER/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchUserFromCustomer(@PathVariable("id") String id){
+        return new ResponseUtil(200, "Ok.",customerService.searchUserFromCustomer(id));
     }
 
 }

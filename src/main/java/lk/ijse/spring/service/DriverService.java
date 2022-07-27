@@ -23,5 +23,7 @@ public interface DriverService {
 
     int availableDriversOrOccupiedDrivers(String NO);
 
+    DriverDTO searchUserFromDriver(String id);
+
 
 }

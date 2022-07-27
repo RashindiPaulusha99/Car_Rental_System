@@ -1,5 +1,6 @@
 package lk.ijse.spring.repo;
 
+import lk.ijse.spring.dto.DriverDTO;
 import lk.ijse.spring.entity.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,5 +19,8 @@ public interface DriverRepo extends JpaRepository<Driver, String> {
 
     @Query(value = "SELECT COUNT(*) FROM Driver WHERE releaseOrNot=:NO", nativeQuery = true)
     int availableDriversOrOccupiedDrivers(@Param("NO") String NO);
+
+    @Query(value = "SELECT * FROM Driver WHERE users_userId=:id", nativeQuery = true)
+    Driver searchUserFromDriver(@Param("id") String id);
 
 }

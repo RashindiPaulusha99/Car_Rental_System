@@ -21,4 +21,6 @@ public interface CustomerService {
 
     int countDailyRegisteredCustomers(String date);
 
+    CustomerDTO searchUserFromCustomer(String id);
+
 }

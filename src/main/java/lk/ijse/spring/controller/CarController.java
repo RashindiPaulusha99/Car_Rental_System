@@ -83,32 +83,32 @@ public class CarController {
         return new ResponseUtil(200, "Ok", carService.findByFuelType(ftype));
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SORT/{passengersDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil sortAccordingToPassengersByDescending() {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToPassengersByDescending());
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SORT/{passengersAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil sortAccordingToPassengersByAscending() {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToPassengersByAscending());
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SORT/{dailyRatePriceDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil sortAccordingToDailyRatePriceByDescending() {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToDailyRatePriceByDescending());
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SORT/{dailyRatePriceAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil sortAccordingToDailyRatePriceByAscending() {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToDailyRatePriceByAscending());
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SORT/{monthlyRatePriceAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil sortAccordingToMonthlyRatePriceByAscending() {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByAscending());
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SORT/{monthlyRatePriceDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil sortAccordingToMonthlyRatePriceByDescending() {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByDescending());
     }

@@ -17,5 +17,6 @@ public interface AdminService {
 
     String generateAdminIds();
 
+    AdminDTO searchUserFromAdmin(String id);
 
 }

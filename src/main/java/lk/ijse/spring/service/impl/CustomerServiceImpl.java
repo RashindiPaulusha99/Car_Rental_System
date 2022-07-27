@@ -80,4 +80,10 @@ public class CustomerServiceImpl implements CustomerService {
     public int countDailyRegisteredCustomers(String date) {
         return customerRepo.countDailyRegisteredCustomers(date);
     }
+
+    @Override
+    public CustomerDTO searchUserFromCustomer(String id) {
+        Customer customer = customerRepo.searchUserFromCustomer(id);
+        return mapper.map(customer,CustomerDTO.class);
+    }
 }

@@ -28,5 +28,9 @@ public class CarDTO {
     private String availableOrNot;
     private String damageOrNot;
     private String underMaintainOrNot;
+    private String fontViewImage;
+    private String backViewImage;
+    private String sideViewImage;
+    private String interiorViewImage;
 
 }

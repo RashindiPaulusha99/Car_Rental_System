@@ -25,6 +25,8 @@ public class CustomerDTO {
     private String customerEmail;
     private String customerNicNo;
     private String customerDrivingLicenseNo;
+    private String NICImage;
+    private String DrivingLicenseImage;
 
 
 }

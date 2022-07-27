@@ -16,7 +16,7 @@ import javax.persistence.Id;
 public class Car {
     @Id
     private String carId;
-    private String registerNo;
+    private String registrationNo;
     private String colour;
     private String brand;
     private String type;
@@ -32,5 +32,9 @@ public class Car {
     private String availableOrNot;
     private String damageOrNot;
     private String underMaintainOrNot;
+    private String fontViewImage;
+    private String backViewImage;
+    private String sideViewImage;
+    private String interiorViewImage;
 
 }

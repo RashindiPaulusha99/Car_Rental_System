@@ -30,7 +30,7 @@ public class ReserveDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
     private LocalTime returnTime;
-    private boolean wantDriverOrNot;
+    private String wantDriverOrNot;
     private String requestAcceptOrDeny;
 
     List<ReserveDetailsDTO> reserveDetails;

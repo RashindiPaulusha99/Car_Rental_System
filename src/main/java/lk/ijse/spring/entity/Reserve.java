@@ -29,7 +29,7 @@ public class Reserve {
     private String returnVenue;
     private LocalDate returnDate;
     private LocalTime returnTime;
-    private boolean wantDriverOrNot;
+    private String wantDriverOrNot;
     private String requestAcceptOrDeny;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})

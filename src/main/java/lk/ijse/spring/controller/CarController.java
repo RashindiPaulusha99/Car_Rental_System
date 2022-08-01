@@ -22,7 +22,7 @@ public class CarController {
     }
 
     @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil searchCar(@PathVariable String id){
+    public ResponseUtil searchCar(@PathVariable("id") String id){
         return new ResponseUtil(200, "Ok.",carService.searchCar(id));
     }
 
@@ -48,73 +48,78 @@ public class CarController {
         return new ResponseUtil(200, "Ok", carService.generateCarIds());
     }
 
-    @GetMapping(path = "/COUNT/{available}")
-    public ResponseUtil NoOfAvailableOrReservedCars(@PathVariable String available) {
-        return new ResponseUtil(200, "Ok", carService.NoOfAvailableOrReservedCars(available));
+    @GetMapping(path = "/AVAILABLECOUNT/{availableCount}")
+    public ResponseUtil noOfAvailableOrReservedCars(@PathVariable("availableCount") String availableCount) {
+        return new ResponseUtil(200, "Ok", carService.noOfAvailableOrReservedCars(availableCount));
     }
 
-    @GetMapping(path = "/COUNT/{maintain}")
-    public ResponseUtil needMaintenanceOrUnderMaintenanceCars(@PathVariable String maintain) {
+    @GetMapping(path = "/COUNTM/{maintain}")
+    public ResponseUtil needMaintenanceOrUnderMaintenanceCars(@PathVariable("maintain") String maintain) {
         return new ResponseUtil(200, "Ok", carService.needMaintenanceOrUnderMaintenanceCars(maintain));
     }
 
-    @GetMapping(path = "{distance}/{carId}")
-    public ResponseUtil calculateKmUntil5000km(@PathVariable String distance, @PathVariable String carId ) {
+    @GetMapping(path = "/CALCULATE/{distance}/{carId}")
+    public ResponseUtil calculateKmUntil5000km(@PathVariable("distance") String distance, @PathVariable("carId") String carId ) {
         return new ResponseUtil(200, "Ok", carService.calculateKmUntil5000km(distance,carId));
     }
 
-    @GetMapping(path = "/TYPE/{tratype}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil findByTransmissionType(@PathVariable String tratype) {
+    @GetMapping(path = "/TYPETR/{tratype}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByTransmissionType(@PathVariable("tratype") String tratype) {
         return new ResponseUtil(200, "Ok", carService.findByTransmissionType(tratype));
     }
 
-    @GetMapping(path = "/TYPE/{brand}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil findByBrand(@PathVariable String brand) {
+    @GetMapping(path = "/TYPEB/{brand}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByBrand(@PathVariable("brand") String brand) {
         return new ResponseUtil(200, "Ok", carService.findByBrand(brand));
     }
 
-    @GetMapping(path = "/TYPE/{type}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil findByType(@PathVariable String type) {
+    @GetMapping(path = "/TYPET/{type}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByType(@PathVariable("type") String type) {
         return new ResponseUtil(200, "Ok", carService.findByType(type));
     }
 
-    @GetMapping(path = "/TYPE/{ftype}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil findByFuelType(@PathVariable String ftype) {
+    @GetMapping(path = "/TYPEF/{ftype}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByFuelType(@PathVariable("ftype") String ftype) {
         return new ResponseUtil(200, "Ok", carService.findByFuelType(ftype));
     }
 
-    @GetMapping(path = "/SORT/{passengersDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil sortAccordingToPassengersByDescending() {
+    @GetMapping(path = "/TYPEC/{colour}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByColour(@PathVariable("colour") String colour) {
+        return new ResponseUtil(200, "Ok", carService.findByColour(colour));
+    }
+
+    @GetMapping(path = "/SORTPD/{passengersDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToPassengersByDescending(@PathVariable("passengersDsc") String passengersDsc ) {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToPassengersByDescending());
     }
 
-    @GetMapping(path = "/SORT/{passengersAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil sortAccordingToPassengersByAscending() {
+    @GetMapping(path = "/SORTPA/{passengersAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToPassengersByAscending(@PathVariable("passengersAsc") String passengersAsc) {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToPassengersByAscending());
     }
 
-    @GetMapping(path = "/SORT/{dailyRatePriceDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil sortAccordingToDailyRatePriceByDescending() {
+    @GetMapping(path = "/SORTDD/{dailyRatePriceDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToDailyRatePriceByDescending(@PathVariable("dailyRatePriceDsc") String dailyRatePriceDsc) {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToDailyRatePriceByDescending());
     }
 
-    @GetMapping(path = "/SORT/{dailyRatePriceAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil sortAccordingToDailyRatePriceByAscending() {
+    @GetMapping(path = "/SORTDA/{dailyRatePriceAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToDailyRatePriceByAscending(@PathVariable("dailyRatePriceAsc") String dailyRatePriceAsc) {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToDailyRatePriceByAscending());
     }
 
-    @GetMapping(path = "/SORT/{monthlyRatePriceAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil sortAccordingToMonthlyRatePriceByAscending() {
+    @GetMapping(path = "/SORTMA/{monthlyRatePriceAsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToMonthlyRatePriceByAscending(@PathVariable("monthlyRatePriceAsc") String monthlyRatePriceAsc) {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByAscending());
     }
 
-    @GetMapping(path = "/SORT/{monthlyRatePriceDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil sortAccordingToMonthlyRatePriceByDescending() {
+    @GetMapping(path = "/SORTMD/{monthlyRatePriceDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToMonthlyRatePriceByDescending(@PathVariable("monthlyRatePriceDsc") String monthlyRatePriceDsc) {
         return new ResponseUtil(200, "Ok", carService.sortAccordingToMonthlyRatePriceByDescending());
     }
 
-    @GetMapping(path = "{available}/{carId}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil carAvailableOrNot(@PathVariable String available, @PathVariable String carId) {
+    @GetMapping(path = "/AVAILABLE/{available}/{carId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil carAvailableOrNot(@PathVariable("available") String available, @PathVariable("carId") String carId) {
         return new ResponseUtil(200, "Ok", carService.carAvailableOrNot(available,carId));
     }
 

@@ -22,7 +22,7 @@ public class Car {
     private String type;
     private String fuelType;
     private String transmissionType;
-    private int NoOfPassengers;
+    private int noOfPassengers;
     private int freeKmForDay;
     private int freeKmForMonth;
     private double pricePerExtraKM;

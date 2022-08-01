@@ -1,6 +1,8 @@
 package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.CarDTO;
+import lk.ijse.spring.entity.Car;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -20,7 +22,7 @@ public interface CarService {
 
     String carAvailableOrNot(String available, String id);
 
-    int NoOfAvailableOrReservedCars(String available);
+    int noOfAvailableOrReservedCars(String availableCount);
 
     int needMaintenanceOrUnderMaintenanceCars(String maintain);
 
@@ -38,6 +40,8 @@ public interface CarService {
 
     List<CarDTO> findByFuelType(String fuelType);
 
+    List<Car> findByColour(String colour);
+
     List<CarDTO> sortAccordingToDailyRatePriceByDescending();
 
     List<CarDTO> sortAccordingToDailyRatePriceByAscending();
@@ -45,6 +49,7 @@ public interface CarService {
     List<CarDTO> sortAccordingToMonthlyRatePriceByAscending();
 
     List<CarDTO> sortAccordingToMonthlyRatePriceByDescending();
+
 
 
 }

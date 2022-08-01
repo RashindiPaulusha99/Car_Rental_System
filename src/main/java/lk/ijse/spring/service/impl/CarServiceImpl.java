@@ -77,8 +77,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public int NoOfAvailableOrReservedCars(String available) {
-        return carRepo.NoOfAvailableOrReservedCars(available);
+    public int noOfAvailableOrReservedCars(String availableCount) {
+        return carRepo.noOfAvailableOrReservedCars(availableCount);
     }
 
     @Override
@@ -129,6 +129,13 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<CarDTO> findByFuelType(String fuelType) {
         List<Car> all = carRepo.findByFuelType(fuelType);
+        return mapper.map(all, new TypeToken<List<CarDTO>>(){
+        }.getType());
+    }
+
+    @Override
+    public List<Car> findByColour(String colour) {
+        List<Car> all = carRepo.findByColour(colour);
         return mapper.map(all, new TypeToken<List<CarDTO>>(){
         }.getType());
     }

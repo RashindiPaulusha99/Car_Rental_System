@@ -1,6 +1,5 @@
 package lk.ijse.spring.dto;
 
-import javafx.scene.image.ImageView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +17,7 @@ public class CarDTO {
     private String type;
     private String fuelType;
     private String transmissionType;
-    private int NoOfPassengers;
+    private int noOfPassengers;
     private int freeKmForDay;
     private int freeKmForMonth;
     private double pricePerExtraKM;

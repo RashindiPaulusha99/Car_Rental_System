@@ -53,7 +53,7 @@ public class CustomerController {
         return new ResponseUtil(200, "Ök", customerService.countRegisteredCustomers());
     }
 
-    @GetMapping(path ="/COUNT/{date}")
+    @GetMapping(path ="/COUNTDAILY/{date}")
     public ResponseUtil countDailyRegisteredCustomers(@PathVariable String date){
         return new ResponseUtil(200, "Ök", customerService.countDailyRegisteredCustomers(date));
     }
@@ -61,6 +61,11 @@ public class CustomerController {
     @GetMapping(path = "/USER/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchUserFromCustomer(@PathVariable("id") String id){
         return new ResponseUtil(200, "Ok.",customerService.searchUserFromCustomer(id));
+    }
+
+    @GetMapping(path = "/FIND/{nic}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findCustomerToReserve(@PathVariable("nic") String nic){
+        return new ResponseUtil(200, "Ok.",customerService.findCustomerToReserve(nic));
     }
 
 }

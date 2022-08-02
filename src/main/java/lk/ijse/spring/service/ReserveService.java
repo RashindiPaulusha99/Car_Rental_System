@@ -14,5 +14,5 @@ public interface ReserveService {
     String generateReserveId();
     int countAllReservation();
     int countDailyReservation(String date);
-    int activeReservationPerDay(String active);
+    int activeReservationPerDay(String date, String accept);
 }

@@ -80,4 +80,9 @@ public class RentPaymentServiceImpl implements RentPaymentService {
     public Double calculateIncome(String firstdate, String lastdate) {
         return rentPaymentRepo.calculateIncome(firstdate,lastdate);
     }
+
+    @Override
+    public double totalIncome() {
+        return rentPaymentRepo.totalIncome();
+    }
 }

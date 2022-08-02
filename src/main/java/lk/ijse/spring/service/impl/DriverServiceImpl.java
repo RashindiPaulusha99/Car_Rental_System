@@ -77,13 +77,14 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public String assignRandomlyDriver(String NO) {
-        return driverRepo.assignRandomlyDriver(NO);
+    public DriverDTO assignRandomlyDriver(String release) {
+        Driver driver = driverRepo.assignRandomlyDriver(release);
+        return mapper.map(driver,DriverDTO.class);
     }
 
     @Override
-    public int availableDriversOrOccupiedDrivers(String NO) {
-        return driverRepo.availableDriversOrOccupiedDrivers(NO);
+    public int availableDriversOrOccupiedDrivers(String release) {
+        return driverRepo.availableDriversOrOccupiedDrivers(release);
     }
 
     @Override

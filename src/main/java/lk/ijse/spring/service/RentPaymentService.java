@@ -22,4 +22,6 @@ public interface RentPaymentService {
 
     Double calculateIncome(String firstdate,String lastdate);
 
+    double totalIncome();
+
 }

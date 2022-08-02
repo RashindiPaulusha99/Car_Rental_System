@@ -147,7 +147,7 @@ public class ReserveServiceImpl implements ReserveService {
     }
 
     @Override
-    public int activeReservationPerDay(String active) {
-        return reserveRepo.activeReservationPerDay(active);
+    public int activeReservationPerDay(String date,String accept) {
+        return reserveRepo.activeReservationPerDay(date,accept);
     }
 }

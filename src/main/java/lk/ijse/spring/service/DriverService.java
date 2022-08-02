@@ -19,9 +19,9 @@ public interface DriverService {
 
     void updateDriverIfHeReleaseOrNot(String release, String driverId);
 
-    String assignRandomlyDriver(String NO);
+    DriverDTO assignRandomlyDriver(String release);
 
-    int availableDriversOrOccupiedDrivers(String NO);
+    int availableDriversOrOccupiedDrivers(String release);
 
     DriverDTO searchUserFromDriver(String id);
 

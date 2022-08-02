@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.xml.transform.sax.SAXTransformerFactory;
 import java.util.List;
 
 public interface CarRepo extends JpaRepository<Car, String> {
@@ -56,5 +57,8 @@ public interface CarRepo extends JpaRepository<Car, String> {
 
     @Query(value = "SELECT * FROM Car WHERE colour LIKE :colour% ", nativeQuery = true)
     List<Car> findByColour(@Param("colour") String colour);
+
+    @Query(value = "SELECT registrationNo FROM Car WHERE registrationNo=:reg ", nativeQuery = true)
+    String searchRegNumberIsDuplicate(@Param("reg") String reg);
 
 }

@@ -54,14 +54,14 @@ public class DriverController {
         return new ResponseUtil(200, "Ok", null);
     }
 
-    @GetMapping(path = "/ASSIGN/{NO}")
-    public ResponseUtil assignRandomlyDriver(@PathVariable String NO) {
-        return new ResponseUtil(200, "Ok", driverService.assignRandomlyDriver(NO));
+    @GetMapping(path = "/ASSIGN/{release}")
+    public ResponseUtil assignRandomlyDriver(@PathVariable("release") String release) {
+        return new ResponseUtil(200, "Ok", driverService.assignRandomlyDriver(release));
     }
 
-    @GetMapping(path = "/AVAILABLE/{NO}")
-    public ResponseUtil availableDriversOrOccupiedDrivers(@PathVariable String NO) {
-        return new ResponseUtil(200, "Ok", driverService.availableDriversOrOccupiedDrivers(NO));
+    @GetMapping(path = "/AVAILABLE/{release}")
+    public ResponseUtil availableDriversOrOccupiedDrivers(@PathVariable("release") String release) {
+        return new ResponseUtil(200, "Ok", driverService.availableDriversOrOccupiedDrivers(release));
     }
 
     @GetMapping(path = "/USER/{id}",produces = MediaType.APPLICATION_JSON_VALUE)

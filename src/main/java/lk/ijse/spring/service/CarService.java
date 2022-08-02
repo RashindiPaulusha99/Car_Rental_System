@@ -50,6 +50,6 @@ public interface CarService {
 
     List<CarDTO> sortAccordingToMonthlyRatePriceByDescending();
 
-
+    String searchRegNumberIsDuplicate(String reg);
 
 }

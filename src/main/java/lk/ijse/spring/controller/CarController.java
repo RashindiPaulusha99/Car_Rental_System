@@ -123,4 +123,10 @@ public class CarController {
         return new ResponseUtil(200, "Ok", carService.carAvailableOrNot(available,carId));
     }
 
+    @DeleteMapping(path = "/SEARCH/{reg}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchRegNumberIsDuplicate(@PathVariable("reg") String reg){
+        return new ResponseUtil(200, "Ok", carService.searchRegNumberIsDuplicate(reg));
+    }
+
+
 }

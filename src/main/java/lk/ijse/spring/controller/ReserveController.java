@@ -51,18 +51,18 @@ public class ReserveController {
     }
 
     @GetMapping(path ="/COUNT/{countall}")
-    public ResponseUtil countAllReservation(@PathVariable String countall){
+    public ResponseUtil countAllReservation(@PathVariable("countall") String countall){
         return new ResponseUtil(200, "Ök", reserveService.countAllReservation());
     }
 
-    @GetMapping(path ="/COUNT/{countdaily}")
-    public ResponseUtil countDailyReservation(@PathVariable String countdaily){
-        return new ResponseUtil(200, "Ök", reserveService.countDailyReservation(countdaily));
+    @GetMapping(path ="/COUNTDAILY/{date}")
+    public ResponseUtil countDailyReservation(@PathVariable("date") String date){
+        return new ResponseUtil(200, "Ök", reserveService.countDailyReservation(date));
     }
 
-    @GetMapping(path ="/COUNT/{countactive}")
-    public ResponseUtil activeReservationPerDay(@PathVariable String countactive){
-        return new ResponseUtil(200, "Ök", reserveService.activeReservationPerDay(countactive));
+    @GetMapping(path ="{date}/{accept}")
+    public ResponseUtil activeReservationPerDay(@PathVariable("date") String date, @PathVariable("accept") String accept){
+        return new ResponseUtil(200, "Ök", reserveService.activeReservationPerDay(date,accept));
     }
 
 }

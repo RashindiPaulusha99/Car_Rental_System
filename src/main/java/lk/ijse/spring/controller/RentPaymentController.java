@@ -58,4 +58,9 @@ public class RentPaymentController {
         return new ResponseUtil(200, "Ok", rentPaymentService.calculateIncome(firstdate,lastdate));
     }
 
+    @GetMapping(path = "/ALLINCOME/{income}")
+    public ResponseUtil totalIncome(@PathVariable("income") String income) {
+        return new ResponseUtil(200, "Ok", rentPaymentService.totalIncome());
+    }
+
 }

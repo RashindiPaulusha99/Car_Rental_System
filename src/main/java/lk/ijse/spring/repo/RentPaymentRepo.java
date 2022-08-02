@@ -16,4 +16,7 @@ public interface RentPaymentRepo extends JpaRepository<RentPayment ,String> {
     @Query(value = "SELECT SUM(fullPayment) FROM RentPayment WHERE paymentDate BETWEEN =:firstdate  AND =:lastdate", nativeQuery = true)
     double calculateIncome(@Param("firstdate") String firstdate, @Param("lastdate") String lastdate);
 
+    @Query(value = "SELECT SUM(fullPayment) FROM RentPayment", nativeQuery = true)
+    double totalIncome();
+
 }

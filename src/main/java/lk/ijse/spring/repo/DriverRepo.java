@@ -14,11 +14,11 @@ public interface DriverRepo extends JpaRepository<Driver, String> {
     @Query(value = "UPDATE Driver SET releaseOrNot=:release WHERE driverId=:driverId", nativeQuery = true)
     void updateDriverIfHeReleaseOrNot(@Param("release") String release, @Param("driverId") String driverId);
 
-    @Query(value = "SELECT driverId FROM Driver WHERE releaseOrNot=:NO ORDER BY RAND() LIMIT 1", nativeQuery = true)
-    String assignRandomlyDriver(@Param("NO") String NO);
+    @Query(value = "SELECT * FROM Driver WHERE releaseOrNot=:release ORDER BY RAND() LIMIT 1", nativeQuery = true)
+    Driver assignRandomlyDriver(@Param("release") String release);
 
-    @Query(value = "SELECT COUNT(*) FROM Driver WHERE releaseOrNot=:NO", nativeQuery = true)
-    int availableDriversOrOccupiedDrivers(@Param("NO") String NO);
+    @Query(value = "SELECT COUNT(*) FROM Driver WHERE releaseOrNot=:release", nativeQuery = true)
+    int availableDriversOrOccupiedDrivers(@Param("release") String release);
 
     @Query(value = "SELECT * FROM Driver WHERE users_userId=:id", nativeQuery = true)
     Driver searchUserFromDriver(@Param("id") String id);

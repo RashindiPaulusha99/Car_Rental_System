@@ -168,5 +168,10 @@ public class CarServiceImpl implements CarService {
         }.getType());
     }
 
+    @Override
+    public String searchRegNumberIsDuplicate(String reg) {
+        return carRepo.searchRegNumberIsDuplicate(reg);
+    }
+
 
 }

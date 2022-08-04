@@ -18,4 +18,5 @@ public interface ReserveService {
     int countDailyReservation(String date);
     int activeReservationPerDay(String date, String accept);
     void updateDriverId(String driverId,String reserveId, String carId);
+    void updateDriverDetails(String driverId,String driverName, String driverContact, String reserveId);
 }

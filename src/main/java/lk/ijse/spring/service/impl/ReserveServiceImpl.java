@@ -151,4 +151,9 @@ public class ReserveServiceImpl implements ReserveService {
     public void updateDriverId(String driverId,String reserveId, String carId) {
         reserveRepo.updateDriverId(driverId,reserveId,carId);
     }
+
+    @Override
+    public void updateDriverDetails(String driverId, String driverName, String driverContact, String reserveId) {
+        reserveRepo.updateDriverDetails(driverId,driverName,driverContact,reserveId);
+    }
 }

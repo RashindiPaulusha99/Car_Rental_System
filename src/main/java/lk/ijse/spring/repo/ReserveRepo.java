@@ -22,4 +22,9 @@ public interface ReserveRepo extends JpaRepository<Reserve, String> {
     @Query(value = "UPDATE ReserveDetails SET driverId=:driverId WHERE reserveId=:reserveId AND carId=:carId", nativeQuery = true)
     void updateDriverId(@Param("driverId") String driverId, @Param("reserveId") String reserveId, @Param("carId") String carId);
 
+    @Query(value = "UPDATE ReserveDetails SET driverId=:driverId, driverName=:driverName, driverContact =:driverContact  WHERE reserveId=:reserveId", nativeQuery = true)
+    void updateDriverDetails(@Param("driverId") String driverId, @Param("driverName") String driverName,@Param("driverContact") String driverContact, @Param("reserveId") String reserveId);
+
+
+
 }

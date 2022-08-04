@@ -64,5 +64,11 @@ public class ReserveController {
         return new ResponseUtil(200, "Ök", reserveService.activeReservationPerDay(date,accept));
     }
 
+    @GetMapping(path ="{driverId}/{driverName}/{driverContact}/{reserveId}")
+    public ResponseUtil updateDriverDetails(@PathVariable("driverId") String driverId, @PathVariable("driverName") String driverName,@PathVariable("driverContact") String driverContact,@PathVariable("reserveId") String reserveId){
+        reserveService.updateDriverDetails(driverId,driverName,driverContact,reserveId);
+        return new ResponseUtil(200, "Ök", null);
+    }
+
 
 }

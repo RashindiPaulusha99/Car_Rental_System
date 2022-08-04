@@ -69,4 +69,9 @@ public class DriverController {
         return new ResponseUtil(200, "Ok.",driverService.searchUserFromDriver(id));
     }
 
+    @GetMapping(path = "/RELEASE/{release}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchAvailableDriversOrOccupiedDrivers(@PathVariable("release") String release){
+        return new ResponseUtil(200, "Ok.",driverService.searchAvailableDriversOrOccupiedDrivers(release));
+    }
+
 }

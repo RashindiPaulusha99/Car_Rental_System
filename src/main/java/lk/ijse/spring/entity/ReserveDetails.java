@@ -40,7 +40,7 @@ public class ReserveDetails {
     @JoinColumn(name = "carId",referencedColumnName = "carId",insertable = false,updatable = false)
     private Car car;
 
-    @ManyToOne()
+    @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
 
     @JoinColumn(name = "driverId",referencedColumnName = "driverId",insertable = false,updatable = false,nullable = true)

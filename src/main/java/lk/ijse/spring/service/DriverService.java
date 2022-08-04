@@ -1,6 +1,7 @@
 package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.DriverDTO;
+import lk.ijse.spring.entity.Driver;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public interface DriverService {
     int availableDriversOrOccupiedDrivers(String release);
 
     DriverDTO searchUserFromDriver(String id);
+
+    List<DriverDTO> searchAvailableDriversOrOccupiedDrivers(String release);
 
 
 }

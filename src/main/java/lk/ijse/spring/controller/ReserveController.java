@@ -64,4 +64,5 @@ public class ReserveController {
         return new ResponseUtil(200, "Ök", reserveService.activeReservationPerDay(date,accept));
     }
 
+
 }

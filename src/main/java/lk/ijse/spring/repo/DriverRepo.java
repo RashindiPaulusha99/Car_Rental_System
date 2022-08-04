@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface DriverRepo extends JpaRepository<Driver, String> {
 
     @Query(value = "SELECT driverId FROM Driver ORDER BY driverId DESC LIMIT 1", nativeQuery = true)
@@ -22,5 +24,9 @@ public interface DriverRepo extends JpaRepository<Driver, String> {
 
     @Query(value = "SELECT * FROM Driver WHERE users_userId=:id", nativeQuery = true)
     Driver searchUserFromDriver(@Param("id") String id);
+
+    @Query(value = "SELECT * FROM Driver WHERE releaseOrNot=:release", nativeQuery = true)
+    List<Driver> searchAvailableDriversOrOccupiedDrivers(@Param("release") String release);
+
 
 }

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
@@ -25,6 +27,7 @@ public class ReserveDetails {
     private String type;
     private String colour;
     private String brand;
+    private String driverWantOrNot;
     private String driverName;
     private String driverContact;
     private double loseDamageWaiverPayment;
@@ -37,8 +40,10 @@ public class ReserveDetails {
     @JoinColumn(name = "carId",referencedColumnName = "carId",insertable = false,updatable = false)
     private Car car;
 
-    @ManyToOne
-    @JoinColumn(name = "driverId",referencedColumnName = "driverId",insertable = false,updatable = false)
+    @ManyToOne()
+    @NotFound(action = NotFoundAction.IGNORE)
+
+    @JoinColumn(name = "driverId",referencedColumnName = "driverId",insertable = false,updatable = false,nullable = true)
     private Driver driver;
 
 }

@@ -16,7 +16,7 @@ public class ScheduleController {
     ScheduleService scheduleService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveSchedule(@ModelAttribute ScheduleDTO scheduleDTO){
+    public ResponseUtil saveSchedule(@RequestBody ScheduleDTO scheduleDTO){
         scheduleService.saveSchedule(scheduleDTO);
         return new ResponseUtil(200, "Successfully Saved.",null);
     }

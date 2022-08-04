@@ -18,8 +18,7 @@ public class CustomerDTO {
     private UsersDTO users;
 
     private String customerName;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate registeredDate;
+    private String registeredDate;
     private String customerAddress;
     private String customerContact;
     private String customerEmail;

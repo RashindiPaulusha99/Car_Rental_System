@@ -18,21 +18,16 @@ public class ReserveDTO {
 
     private String reserveId;
     private CustomerDTO customer;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate pickUpDate;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate reserveDate;
-    private LocalTime pickUpTime;
+    private String pickUpDate;
+    private String reserveDate;
+    private String pickUpTime;
     private String destination;
     private int duration;
     private String pickUpVenue;
     private String returnVenue;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate returnDate;
-    private LocalTime returnTime;
-    private String wantDriverOrNot;
+    private String returnDate;
+    private String returnTime;
     private String requestAcceptOrDeny;
 
     List<ReserveDetailsDTO> reserveDetails;
-
 }

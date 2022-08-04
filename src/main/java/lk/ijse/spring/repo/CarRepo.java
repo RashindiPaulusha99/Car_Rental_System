@@ -23,7 +23,7 @@ public interface CarRepo extends JpaRepository<Car, String> {
     double calculateKmUntil5000km(@Param("distance") String distance, @Param("carId") String carId);
 
     @Query(value = "UPDATE Car SET availableOrNot=:available WHERE carId=:carId", nativeQuery = true)
-    String carAvailableOrNot(@Param("available") String available, @Param("carId") String carId);
+    void carAvailableOrNot(@Param("available") String available, @Param("carId") String carId);
 
     @Query(value = "SELECT * FROM Car ORDER BY noOfPassengers DESC", nativeQuery = true)
     List<Car> sortAccordingToPassengersByDescending();

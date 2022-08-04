@@ -20,7 +20,7 @@ public interface CarService {
 
     String generateCarIds();
 
-    String carAvailableOrNot(String available, String id);
+    void carAvailableOrNot(String available, String id);
 
     int noOfAvailableOrReservedCars(String availableCount);
 

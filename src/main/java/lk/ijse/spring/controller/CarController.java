@@ -120,10 +120,11 @@ public class CarController {
 
     @GetMapping(path = "/AVAILABLE/{available}/{carId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil carAvailableOrNot(@PathVariable("available") String available, @PathVariable("carId") String carId) {
-        return new ResponseUtil(200, "Ok", carService.carAvailableOrNot(available,carId));
+        carService.carAvailableOrNot(available,carId);
+        return new ResponseUtil(200, "Ok", null);
     }
 
-    @DeleteMapping(path = "/SEARCH/{reg}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/SEARCH/{reg}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchRegNumberIsDuplicate(@PathVariable("reg") String reg){
         return new ResponseUtil(200, "Ok", carService.searchRegNumberIsDuplicate(reg));
     }

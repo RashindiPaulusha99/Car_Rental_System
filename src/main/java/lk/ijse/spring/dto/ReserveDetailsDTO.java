@@ -18,6 +18,7 @@ public class ReserveDetailsDTO {
     private String colour;
     private String brand;
 
+    private String driverWantOrNot;
     private String driverId;
     private String driverName;
     private String driverContact;

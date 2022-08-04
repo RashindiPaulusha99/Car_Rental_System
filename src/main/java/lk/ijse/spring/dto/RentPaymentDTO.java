@@ -15,8 +15,7 @@ import java.time.LocalDate;
 public class RentPaymentDTO {
 
     private String paymentId;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate paymentDate;
+    private String paymentDate;
     private double rentFee;
     private String harmOrNot;
     private double loseDamagePayment;
@@ -28,5 +27,4 @@ public class RentPaymentDTO {
     private double fullPayment;
 
     private ReserveDetailsDTO reserveDetails;
-
 }

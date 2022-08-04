@@ -21,7 +21,7 @@ public class RentPayment {
     @Id
     private String paymentId;
 
-    private LocalDate paymentDate;
+    private String paymentDate;
     private double rentFee;
     private String harmOrNot;
     private double loseDamagePayment;
@@ -34,5 +34,5 @@ public class RentPayment {
 
     @OneToOne(cascade = CascadeType.ALL)
     private ReserveDetails reserveDetails;
-
 }
+

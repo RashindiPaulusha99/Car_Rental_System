@@ -16,12 +16,10 @@ import java.time.LocalTime;
 public class ScheduleDTO {
 
     private String scheduleId;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate pickUpDate;
-    private LocalTime pickUpTime;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate returnDate;
-    private LocalTime returnTime;
+    private String pickUpDate;
+    private String pickUpTime;
+    private String returnDate;
+    private String returnTime;
     private String pickUpVenue;
     private String returnVenue;
     private String releaseOrNot;

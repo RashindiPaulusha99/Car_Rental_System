@@ -21,11 +21,10 @@ public class ReserveController {
         return new ResponseUtil(200,"Ok",reserveService.getAllReservations());
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveReservation(@RequestBody ReserveDTO reserveDTO){
         reserveService.reservationCars(reserveDTO);
-        return new ResponseUtil(200, "Reserved Successfully.",null);
+        return new ResponseUtil(200, "Booking Successfully.",null);
     }
 
     @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)

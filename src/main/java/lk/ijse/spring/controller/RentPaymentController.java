@@ -16,7 +16,7 @@ public class RentPaymentController {
     RentPaymentService rentPaymentService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil savePayment(@ModelAttribute RentPaymentDTO rentPaymentDTO){
+    public ResponseUtil savePayment(@RequestBody RentPaymentDTO rentPaymentDTO){
         rentPaymentService.savePayment(rentPaymentDTO);
         return new ResponseUtil(200, "Successfully Saved.",null);
     }

@@ -20,20 +20,19 @@ public class Reserve {
     @Id
     private String reserveId;
 
-    private LocalDate reserveDate;
-    private LocalDate pickUpDate;
-    private LocalTime pickUpTime;
+    private String reserveDate;
+    private String pickUpDate;
+    private String pickUpTime;
     private String destination;
     private int duration;
     private String pickUpVenue;
     private String returnVenue;
-    private LocalDate returnDate;
-    private LocalTime returnTime;
-    private String wantDriverOrNot;
+    private String returnDate;
+    private String returnTime;
     private String requestAcceptOrDeny;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "cusId", referencedColumnName = "customerId", nullable = false)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId", nullable = false)
     private Customer customer;
 
     @OneToMany(mappedBy = "reserve",cascade = CascadeType.ALL)

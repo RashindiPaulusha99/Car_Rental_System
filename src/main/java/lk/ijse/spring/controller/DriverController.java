@@ -48,8 +48,8 @@ public class DriverController {
         return new ResponseUtil(200, "Ok", driverService.generateDriverIds());
     }
 
-    @GetMapping(path = "{release}/{carId}")
-    public ResponseUtil updateDriverIfHeReleaseOrNot(@PathVariable String release, @PathVariable String driverId ) {
+    @GetMapping(path = "{release}/{driverId}")
+    public ResponseUtil updateDriverIfHeReleaseOrNot(@PathVariable("release") String release, @PathVariable("driverId") String driverId ) {
         driverService.updateDriverIfHeReleaseOrNot(release,driverId);
         return new ResponseUtil(200, "Ok", null);
     }

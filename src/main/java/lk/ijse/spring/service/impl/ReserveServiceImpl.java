@@ -21,9 +21,6 @@ public class ReserveServiceImpl implements ReserveService {
     private ReserveRepo reserveRepo;
 
     @Autowired
-    private ReserveDetailsRepo reserveDetailsRepo;
-
-    @Autowired
     private CarRepo carRepo;
 
     @Autowired
@@ -47,22 +44,21 @@ public class ReserveServiceImpl implements ReserveService {
 
                 for (ReserveDetails reserveDetails : reserve.getReserveDetails()) {
                     Car car = carRepo.findById(reserveDetails.getCarId()).get();
-                    carRepo.carAvailableOrNot("Not Available",car.getCarId()) ;
-                    Driver driver = driverRepo.findById(reserveDetails.getDriverId()).get();
-                    driverRepo.updateDriverIfHeReleaseOrNot("NO", reserveDetails.getDriverId());
+                    car.setAvailableOrNot("Not Available");
+                    carRepo.save(car);
 
-                    Schedule rd = new Schedule(
-                            scheduleRepo.generateScheduleId(),
-                            reserve.getPickUpDate(),
-                            reserve.getPickUpTime(),
-                            reserve.getReserveDate(),
-                            reserve.getReturnTime(),
-                            reserve.getPickUpVenue(),
-                            reserve.getReturnVenue(),
-                            driver.getReleaseOrNot(),
-                            reserveDetails
-                    );
-                    scheduleRepo.save(rd);
+                    System.out.println(driverRepo.existsById(reserveDetails.getDriverId()));
+                    System.out.println(reserveDetails.getDriverId());
+                    if (driverRepo.existsById(reserveDetails.getDriverId())){
+                        Driver driver = driverRepo.findById(reserveDetails.getDriverId()).get();
+                        driver.setReleaseOrNot("Not Release");
+                        driverRepo.save(driver);
+                    }else if(reserveDetails.getDriverId().equals("none")){
+                        reserveRepo.updateDriverId("none",reserve.getReserveId(),reserveDetails.getCarId());
+                    }
+
+
+
                 }
             }
 
@@ -149,5 +145,10 @@ public class ReserveServiceImpl implements ReserveService {
     @Override
     public int activeReservationPerDay(String date,String accept) {
         return reserveRepo.activeReservationPerDay(date,accept);
+    }
+
+    @Override
+    public void updateDriverId(String driverId,String reserveId, String carId) {
+        reserveRepo.updateDriverId(driverId,reserveId,carId);
     }
 }

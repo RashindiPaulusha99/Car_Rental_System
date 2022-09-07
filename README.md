@@ -60,6 +60,9 @@ Below you can see the languages,frameworks architectures, tools I used  the proj
 ## Architectures
 * Layered 
 
+## Language
+* Java
+
 ## Frameworks
 
 #### Spring -  

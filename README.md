@@ -73,4 +73,4 @@ Below you can see the languages,frameworks architectures, tools I used  the proj
 
 ## Diagram
 * ER diagram - ![er diagram](rental.drawio.png)
-* Class diagram - ![class diagram](class diagram.drawio.png)
+* Class diagram - ![class diagram](classdiagram.drawio.png)

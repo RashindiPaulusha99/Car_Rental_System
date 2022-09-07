@@ -67,3 +67,7 @@ Below you can see the languages,frameworks architectures, tools I used  the proj
 
 ## Tools
 #### IntelliJ IDEA
+
+## Diagram
+* ER diagram - 
+* Class diagram - 

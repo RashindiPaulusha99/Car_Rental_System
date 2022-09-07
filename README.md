@@ -66,7 +66,7 @@ Below you can see the languages,frameworks architectures, tools I used  the proj
 ## Frameworks
 
 #### Spring -  
-* Spring - MVC  
+* Spring - MVC (use Maven for dependency manage) 
 
 ## Tools
 #### IntelliJ IDEA

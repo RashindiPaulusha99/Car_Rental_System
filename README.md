@@ -72,5 +72,5 @@ Below you can see the languages,frameworks architectures, tools I used  the proj
 #### IntelliJ IDEA
 
 ## Diagram
-* ER diagram - 
-* Class diagram - 
+* ER diagram - ![er diagram](rental.drawio.png)
+* Class diagram - ![class diagram](class diagram.drawio.png)

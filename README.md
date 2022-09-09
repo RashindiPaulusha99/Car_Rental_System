@@ -62,10 +62,13 @@ Below you can see the languages,frameworks architectures, tools I used  the proj
 
 ## Language
 * Java
+* JavaScript
+* CSS
+* HTML
 
 ## Frameworks
-
-#### Spring -  
+####Bootstrap 
+#### Spring - 
 * Spring - MVC (use Maven for dependency manage) 
 
 ## Tools
